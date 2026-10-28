@@ -1,0 +1,16 @@
+# Documentación
+*.pdf
+*.doc
+*.docx
+*.ppt
+*.pptx
+
+# Comprimidos
+*.zip
+
+# Python
+__pycache__/
+*.pyc
+
+# VS Code
+.vscode/
