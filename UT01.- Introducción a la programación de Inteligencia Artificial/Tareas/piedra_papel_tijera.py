@@ -1,3 +1,5 @@
+import random
+
 # Definir constantes
 PIEDRA = "piedra"
 PAPEL = "papel"
@@ -27,6 +29,13 @@ def decidir_ganador(user_action, computer_action):
 
 # Definir main() → bucle de juego
 def main():
-    pass
+    while True:
+        user_action = input("Elige una opción: piedra, papel o tijera (CTRL+C para salir): ")
+        computer_action = random.choice([PIEDRA, PAPEL, TIJERA])
+
+        print("Elegiste " + user_action + ". El ordenador eligió " + computer_action + ".")
+        print(decidir_ganador(user_action, computer_action))
+
+main()
 
 
