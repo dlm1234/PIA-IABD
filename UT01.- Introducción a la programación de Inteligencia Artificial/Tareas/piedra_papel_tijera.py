@@ -7,6 +7,7 @@ TIJERA = "tijera"
 
 # Definir una función que decida quién gana
 def decidir_ganador(user_action, computer_action):
+    # Comparar las acciones del usuario y del ordenador
     if user_action == computer_action:
         return "Usuario y ordenador eligieron " + user_action + ". ¡Empate!"
     elif user_action == PIEDRA:
@@ -24,13 +25,25 @@ def decidir_ganador(user_action, computer_action):
             return "Tijera corta papel. ¡Ganaste!"
         else:
             return "Piedra rompe tijera. ¡Perdiste!"
+    # Si llegamos aquí, la acción del usuario no es válida
     else:
         return "Acción inválida. Por favor elige piedra, papel o tijera."
 
 # Definir main() → bucle de juego
 def main():
     while True:
-        user_action = input("Elige una opción: piedra, papel o tijera (CTRL+C para salir): ")
+        user_action = input(
+            "Elige una opción: piedra, papel o tijera (escribe 'salir' para terminar): "
+        ).strip().lower()
+
+        if user_action == "salir":
+            print("¡Hasta la próxima!")
+            break
+
+        if user_action not in [PIEDRA, PAPEL, TIJERA]:
+            print("Acción inválida. Por favor elige piedra, papel o tijera.")
+            continue
+
         computer_action = random.choice([PIEDRA, PAPEL, TIJERA])
 
         print("Elegiste " + user_action + ". El ordenador eligió " + computer_action + ".")
